@@ -220,226 +220,80 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Portfolio Carousel Styles */
+      /* Portfolio Section - Updated for 2 items per row */
         .portfolio {
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0a0a0a 0%, #121212 100%);
+            padding: 100px 0;
         }
-        
-        .portfolio-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 380px;
-            position: relative;
-            margin: 0 auto;
-            max-width: 1100px;
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
-        
+
         .portfolio-item {
-            width: 280px;
-            height: 320px;
-            position: absolute;
-            border-radius: 12px;
+            position: relative;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-            transform: scale(0.85);
-            opacity: 0.8;
-            z-index: 1;
+            height: 250px;
         }
-        
-        .portfolio-item.active {
-            transform: scale(1) translateY(-5px);
-            opacity: 1;
-            z-index: 3;
-            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.4);
-        }
-        
-        .portfolio-item.left {
-            transform: translateX(-90%) scale(0.85);
-        }
-        
-        .portfolio-item.right {
-            transform: translateX(90%) scale(0.85);
-        }
-        
+
         .portfolio-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: all 0.5s ease;
         }
-        
+
         .portfolio-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.2), rgba(138, 43, 226, 0.7));
+            background: linear-gradient(to bottom, rgba(138, 43, 226, 0.8), rgba(0, 216, 255, 0.8));
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
-            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 20px;
         }
-        
-        .portfolio-item:hover .portfolio-overlay,
-        .portfolio-item:focus .portfolio-overlay,
-        .portfolio-item.active .portfolio-overlay {
+
+        .portfolio-item:hover .portfolio-overlay {
             opacity: 1;
         }
-        
-        .portfolio-overlay h3 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            color: white;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-        
-        .portfolio-overlay p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            transform: translateY(20px);
-            transition: transform 0.3s ease 0.1s;
-        }
-        
-        .portfolio-link {
-            color: white;
-            background: linear-gradient(45deg, #8a2be2, #6a1b9a);
-            padding: 8px 18px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(138, 43, 226, 0.4);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            width: fit-content;
-            transform: translateY(20px);
-            transition: transform 0.3s ease 0.2s;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay h3,
-        .portfolio-item:focus .portfolio-overlay h3,
-        .portfolio-item:hover .portfolio-overlay p,
-        .portfolio-item:focus .portfolio-overlay p,
-        .portfolio-item:hover .portfolio-overlay .portfolio-link,
-        .portfolio-item:focus .portfolio-overlay .portfolio-link,
-        .portfolio-item.active .portfolio-overlay h3,
-        .portfolio-item.active .portfolio-overlay p,
-        .portfolio-item.active .portfolio-overlay .portfolio-link {
-            transform: translateY(0);
-        }
-        
-        .portfolio-link i {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .portfolio-link:hover {
-            background: linear-gradient(45deg, #6a1b9a, #8a2be2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.5);
-        }
-        
-        .portfolio-link:hover i {
-            transform: translateX(2px);
-        }
-        
-        .portfolio-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            z-index: 4;
-            pointer-events: none;
-        }
-        
-        .portfolio-nav button {
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            color: #8a2be2;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1rem;
-            cursor: pointer;
-            margin: 0 15px;
-            transition: all 0.3s ease;
-            pointer-events: all;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .portfolio-nav button:hover {
-            background: white;
+
+        .portfolio-item:hover .portfolio-img {
             transform: scale(1.1);
         }
-        
-        .portfolio-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            gap: 8px;
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+            text-align: center;
         }
-        
-        .portfolio-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
+
+        .portfolio-overlay p {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-link {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
-        
-        .portfolio-dot.active {
-            background: #8a2be2;
-            transform: scale(1.2);
-            box-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
-        }
-        
-        @media (max-width: 768px) {
-            .portfolio-item {
-                width: 250px;
-                height: 280px;
-            }
-            
-            .portfolio-overlay {
-                padding: 15px;
-                opacity: 1; /* Show overlay by default on mobile */
-            }
-            
-            .portfolio-overlay h3,
-            .portfolio-overlay p,
-            .portfolio-overlay .portfolio-link {
-                transform: translateY(0); /* Show content by default on mobile */
-            }
-            
-            .portfolio-overlay h3 {
-                font-size: 1.1rem;
-            }
-            
-            .portfolio-overlay p {
-                font-size: 0.8rem;
-            }
-            
-            .portfolio-link {
-                padding: 6px 14px;
-                font-size: 0.8rem;
-            }
+
+        .portfolio-link:hover {
+            background-color: rgba(0, 0, 0, 0.7);
         }
         /* About Section */
         .about {
@@ -513,6 +367,94 @@
             background: linear-gradient(to right, var(--primary), var(--secondary));
             border-radius: 4px;
         }
+           /* Pricing Section */
+.pricing {
+    padding: 100px 0;
+    background-color: var(--dark);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.pricing-card {
+    background-color: var(--gray);
+    border-radius: 10px;
+    padding: 40px 30px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.pricing-card.featured {
+    border: 1px solid var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--light);
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--primary);
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.features li {
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features li i {
+    color: var(--primary);
+}
+
+.pricing-card .cta-button {
+    width: 100%;
+    text-align: center;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .pricing-card.featured {
+        transform: none;
+    }
+}
 
         /* Testimonials Section */
         .testimonials {
@@ -876,6 +818,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -942,66 +885,43 @@
             </div>
         </div>
     </section>
-
-   <section class="portfolio" id="portfolio">
+ <!-- Portfolio Section - Updated for 2 items per row -->
+    <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2 class="section-title">IF YOU ARE A </h2>
-            <div class="portfolio-container">
-                <div class="portfolio-nav">
-                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="next"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                
-                <div class="portfolio-item active">
-                    <img src="https://i.ibb.co/FbNpLK5C/realstate.png" alt="Realtor website" class="portfolio-img">
+            <h2 class="section-title fade-in">IF YOU ARE</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <img src="https://i.ibb.co/FbNpLK5C/realstate.png" alt="Modern real estate website with property showcase" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Realtor</h3>
-                        <p>Luxury real estate showcase with virtual tours</p>
-                        <a href="https://shamaxmedia.github.io/realtor.github.io/" class="portfolio-link">
-                            View Site <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <p>"A stunning luxury website crafted for realtors"</p>
+                        <a href="https://shamaxmedia.github.io/realtor.github.io/" class="portfolio-link">View website</a>
                     </div>
                 </div>
-                
-                <div class="portfolio-item right">
-                    <img src="https://i.ibb.co/j908DpzG/sssss.png" alt="Electrician website" class="portfolio-img">
+                <div class="portfolio-item fade-in delay-1">
+                    <img src="https://i.ibb.co/j908DpzG/sssss.png" alt="Electrician service website with clean design" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>Electrician </h3>
-                        <p>Professional electrical service booking</p>
-                        <a href="https://shamaxmedia.github.io/Electrical/" class="portfolio-link">
-                            View Site <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <h3>Electrician</h3>
+                        <p>"A clean, modern website designed for professional electricians"</p>
+                        <a href="https://shamaxmedia.github.io/Electrical/" class="portfolio-link">View website</a>
                     </div>
                 </div>
-                
-                <div class="portfolio-item">
-                   <img src="https://i.ibb.co/wNpMM9rQ/sdcd.png" alt="Landscaper website" class="portfolio-img">
+                <div class="portfolio-item fade-in">
+                    <img src="https://i.ibb.co/wNpMM9rQ/sdcd.png" alt="Landscaping business website" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Landscaper</h3>
-                        <p>Garden designs and services showcase</p>
-                        <a href="https://shamaxmedia.github.io/landscaping/" class="portfolio-link">
-                            View Site <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <p>"Crafted to grow your landscaping business online."</p>
+                        <a href="https://shamaxmedia.github.io/landscaping/" class="portfolio-link">View website</a>
                     </div>
                 </div>
-                
-                <div class="portfolio-item left">
-                <img src="https://i.ibb.co/21hy4qpk/efefbefbef.png" a alt="Restaurant website" class="portfolio-img">
+                <div class="portfolio-item fade-in delay-1">
+                    <img src="https://i.ibb.co/21hy4qpk/efefbefbef.png" alt="Restaurant website with online ordering" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>fitness coach</h3>
                         <p>A simple website so your service of fitness coaching</p>
-                        <a href="https://shamaxmedia.github.io/fitness-coach/" class="portfolio-link">
-                            View Site <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <a href="https://shamaxmedia.github.io/fitness-coach/" class="portfolio-link">View Project</a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="portfolio-dots">
-                <div class="portfolio-dot active"></div>
-                <div class="portfolio-dot"></div>
-                <div class="portfolio-dot"></div>
-                <div class="portfolio-dot"></div>
             </div>
         </div>
     </section>
@@ -1061,6 +981,54 @@
             </div>
         </div>
     </section>
+
+    <!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2 class="section-title fade-in">Our Pricing Plans</h2>
+        <div class="pricing-grid">
+            <!-- Basic Plan -->
+            <div class="pricing-card fade-in">
+                <h3>Basic</h3>
+                <div class="price">$250</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 1 Page Website</li>
+                    <li><i class="fas fa-check"></i> Responsive Design</li>
+                    <li><i class="fas fa-check"></i> Basic SEO</li>
+                    <li><i class="fas fa-check"></i> Delivery in 3 Days</li>
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+
+            <!-- Standard Plan (Featured) -->
+            <div class="pricing-card featured fade-in delay-1">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Standard</h3>
+                <div class="price">$450</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Up to 5 Pages</li>
+                    <li><i class="fas fa-check"></i> Responsive Design</li>
+                    <li><i class="fas fa-check"></i> SEO Optimized</li>
+                    <li><i class="fas fa-check"></i> Delivery in 5 Days</li>
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="pricing-card fade-in delay-2">
+                <h3>Premium</h3>
+                <div class="price">$750</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Up to 10 Pages</li>
+                    <li><i class="fas fa-check"></i> Custom Design</li>
+                    <li><i class="fas fa-check"></i> Advanced SEO + Analytics</li>
+                    <li><i class="fas fa-check"></i> Delivery in 7 Days</li>
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
  <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
@@ -1115,7 +1083,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+  <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title fade-in">Get In Touch</h2>
@@ -1130,8 +1098,9 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Office Address</h4>
-                                <p>123 Tech Park, Silicon Valley, CA 94000</p>
+                                <h4>Working hours</h4>
+                                <p>Mon – Fri: 9:00 AM – 6:00 PM (GMT+5:30)
+                                </p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1140,7 +1109,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Call Us</h4>
-                                <a href="tel:+18005551234">+1 (800) 555-1234</a>
+                                <a href="tel:+18005551234">+94 762349507</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1149,28 +1118,24 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Email Us</h4>
-                                <a href="mailto:info@shamaxmedia.com">info@shamaxmedia.com</a>
+                                <a href="mailto:info@shamaxmedia.com">shamaxmedia.digital@gmail.com</a>
                             </div>
                         </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="#" class="social-link">
+                        <a href="https://www.facebook.com/profile.php?id=61577900775130" class="social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://x.com/shamaxmedia" class="social-link">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link">
+                       
+                        <a href="https://www.instagram.com/shamaxmedia/" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                    </div>
+
+                 </div>
                 </div>
                 <div class="contact-form fade-in delay-1">
                 <form action=https://formspree.io/f/xblyeezn method="POST">
@@ -1242,89 +1207,6 @@
 
    
         }
-
-        // Newsletter Form Submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for subscribing to our newsletter!');
-                newsletterForm.reset();
-            });
-        }
-
-         // Portfolio Carousel
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const dots = document.querySelectorAll('.portfolio-dot');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        let currentIndex = 0;
-        
-        function updateCarousel() {
-            portfolioItems.forEach((item, index) => {
-                item.classList.remove('active', 'left', 'right');
-                
-                if (index === currentIndex) {
-                    item.classList.add('active');
-                } else if (index === (currentIndex + 1) % portfolioItems.length) {
-                    item.classList.add('right');
-                } else if (index === (currentIndex - 1 + portfolioItems.length) % portfolioItems.length) {
-                    item.classList.add('left');
-                }
-            });
-            
-            dots.forEach((dot, index) => {
-                dot.classList.remove('active');
-                if (index === currentIndex) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-        
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % portfolioItems.length;
-            updateCarousel();
-        }
-        
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
-            updateCarousel();
-        }
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateCarousel();
-            });
-        });
-        
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-        
-        let carouselInterval = setInterval(nextSlide, 5000);
-        
-        document.querySelector('.portfolio-container').addEventListener('mouseenter', () => {
-            clearInterval(carouselInterval);
-        });
-        
-        document.querySelector('.portfolio-container').addEventListener('mouseleave', () => {
-            carouselInterval = setInterval(nextSlide, 5000);
-        });
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') prevSlide();
-        });
-        
-        // Add touch support for mobile devices
-        portfolioItems.forEach(item => {
-            item.addEventListener('touchstart', function() {
-                // On mobile, we'll keep the overlay visible at all times (handled in CSS)
-                // This is just to ensure touch events work properly
-            });
-        });
-        
-        updateCarousel();
-    </script>
+</script>
 </body>
 </html>
