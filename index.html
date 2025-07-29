@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ShamaxMedia | Web Development Agency</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -87,6 +87,11 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             position: relative;
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         nav ul li a:hover {
@@ -108,6 +113,15 @@
             width: 100%;
         }
 
+        nav ul li a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -115,6 +129,9 @@
             color: var(--light);
             font-size: 1.5rem;
             cursor: pointer;
+            min-width: 44px;
+            min-height: 44px;
+            z-index: 1001;
         }
 
         /* Hero Section */
@@ -220,7 +237,7 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-      /* Portfolio Section - Updated for 2 items per row */
+        /* Portfolio Section */
         .portfolio {
             padding: 100px 0;
         }
@@ -295,6 +312,7 @@
         .portfolio-link:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
+
         /* About Section */
         .about {
             padding: 100px 0;
@@ -367,94 +385,89 @@
             background: linear-gradient(to right, var(--primary), var(--secondary));
             border-radius: 4px;
         }
-           /* Pricing Section */
-.pricing {
-    padding: 100px 0;
-    background-color: var(--dark);
-}
 
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: var(--dark);
+        }
 
-.pricing-card {
-    background-color: var(--gray);
-    border-radius: 10px;
-    padding: 40px 30px;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    text-align: center;
-}
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
 
-.pricing-card.featured {
-    border: 1px solid var(--primary);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
-}
+        .pricing-card {
+            background-color: var(--gray);
+            border-radius: 10px;
+            padding: 40px 30px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
 
-.popular-badge {
-    position: absolute;
-    top: -15px;
-    right: 20px;
-    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
+        .pricing-card.featured {
+            border: 1px solid var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+        }
 
-.pricing-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: var(--light);
-}
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
 
-.price {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: var(--primary);
-}
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
 
-.features {
-    list-style: none;
-    margin-bottom: 30px;
-}
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
 
-.features li {
-    padding: 10px 0;
-    color: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
 
-.features li i {
-    color: var(--primary);
-}
+        .features li {
+            padding: 10px 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.pricing-card .cta-button {
-    width: 100%;
-    text-align: center;
-}
+        .features li i {
+            color: var(--primary);
+        }
 
-.pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border-color: var(--primary);
-}
+        .pricing-card .cta-button {
+            width: 100%;
+            text-align: center;
+        }
 
-@media (max-width: 768px) {
-    .pricing-card.featured {
-        transform: none;
-    }
-}
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
 
         /* Testimonials Section */
         .testimonials {
@@ -709,14 +722,46 @@
         }
 
         /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
+        /* Extra Small Devices (Phones < 375px) */
+        @media (max-width: 374px) {
+            .logo {
+                font-size: 1.5rem;
             }
+            .logo-icon {
+                font-size: 2rem;
+            }
+            nav ul li a {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
 
-            .about-img,
-            .about-text {
-                flex: 1 1 100%;
+        /* Small Devices (Phones 375px-576px) */
+        @media (min-width: 375px) and (max-width: 576px) {
+            .logo {
+                font-size: 1.7rem;
+            }
+            nav ul li a {
+                font-size: 1.05rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Medium Devices (Phones 577px-768px) */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .logo {
+                font-size: 1.9rem;
             }
         }
 
@@ -738,10 +783,13 @@
                 transform: translateY(-150%);
                 transition: all 0.5s ease;
                 z-index: 999;
+                max-height: 0;
+                overflow: hidden;
             }
 
             nav ul.active {
                 transform: translateY(0);
+                max-height: 500px;
             }
 
             nav ul li {
@@ -753,22 +801,33 @@
                 border-bottom: none;
             }
 
+            nav ul li a.active {
+                background-color: rgba(138, 43, 226, 0.1);
+                border-left: 3px solid var(--primary);
+            }
+            
+            nav ul li a.active::after {
+                display: none;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
+            /* Updated portfolio grid for mobile */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img,
+            .about-text {
+                flex: 1 1 100%;
             }
         }
 
@@ -799,7 +858,7 @@
         .delay-3 {
             animation-delay: 0.6s;
         }
- </style>
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -885,10 +944,11 @@
             </div>
         </div>
     </section>
- <!-- Portfolio Section - Updated for 2 items per row -->
+
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2 class="section-title fade-in">IF YOU ARE</h2>
+            <h2 class="section-title fade-in">Our Portfolio</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item fade-in">
                     <img src="https://i.ibb.co/FbNpLK5C/realstate.png" alt="Modern real estate website with property showcase" class="portfolio-img">
@@ -936,8 +996,8 @@
                 </div>
                 <div class="about-text fade-in delay-1">
                     <h3>We Create Digital Experiences</h3>
-                    <p>Founded in 2023, ShamaxMedia has grown from a small freelance operation to a full-service digital agency with a team of talented designers, developers, and strategists.</p>
-                    <p>Our mission is to help businesses of all sizes establish a powerful online presence through custom web solutions that are visually stunning, technically robust, and performance-driven.</p>
+                    <p>Founded in 2022, ShamaxMedia started as a solo freelance project and has since evolved into a full-service digital agency. Today, we're a team of skilled designers, developers, and digital strategists working together to build impactful web experiences.</p>
+                    <p>Our goal is simple: to help businesses grow online with custom websites that not only look great but also perform flawlessly across devices and platforms.</p>
                     
                     <div class="skills">
                         <div class="skill-item">
@@ -983,53 +1043,54 @@
     </section>
 
     <!-- Pricing Section -->
-<section class="pricing" id="pricing">
-    <div class="container">
-        <h2 class="section-title fade-in">Our Pricing Plans</h2>
-        <div class="pricing-grid">
-            <!-- Basic Plan -->
-            <div class="pricing-card fade-in">
-                <h3>Basic</h3>
-                <div class="price">$250</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> 1 Page Website</li>
-                    <li><i class="fas fa-check"></i> Responsive Design</li>
-                    <li><i class="fas fa-check"></i> Basic SEO</li>
-                    <li><i class="fas fa-check"></i> Delivery in 3 Days</li>
-                </ul>
-                <a href="#contact" class="cta-button">Get Started</a>
-            </div>
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Pricing Plans</h2>
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card fade-in">
+                    <h3>Basic</h3>
+                    <div class="price">$250</div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 1 Page Website</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Basic SEO</li>
+                        <li><i class="fas fa-check"></i> Delivery in 3 Days</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
 
-            <!-- Standard Plan (Featured) -->
-            <div class="pricing-card featured fade-in delay-1">
-                <div class="popular-badge">Most Popular</div>
-                <h3>Standard</h3>
-                <div class="price">$450</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Up to 5 Pages</li>
-                    <li><i class="fas fa-check"></i> Responsive Design</li>
-                    <li><i class="fas fa-check"></i> SEO Optimized</li>
-                    <li><i class="fas fa-check"></i> Delivery in 5 Days</li>
-                </ul>
-                <a href="#contact" class="cta-button">Get Started</a>
-            </div>
+                <!-- Standard Plan (Featured) -->
+                <div class="pricing-card featured fade-in delay-1">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Standard</h3>
+                    <div class="price">$450</div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Up to 5 Pages</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> SEO Optimized</li>
+                        <li><i class="fas fa-check"></i> Delivery in 5 Days</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
 
-            <!-- Premium Plan -->
-            <div class="pricing-card fade-in delay-2">
-                <h3>Premium</h3>
-                <div class="price">$750</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Up to 10 Pages</li>
-                    <li><i class="fas fa-check"></i> Custom Design</li>
-                    <li><i class="fas fa-check"></i> Advanced SEO + Analytics</li>
-                    <li><i class="fas fa-check"></i> Delivery in 7 Days</li>
-                </ul>
-                <a href="#contact" class="cta-button">Get Started</a>
+                <!-- Premium Plan -->
+                <div class="pricing-card fade-in delay-2">
+                    <h3>Premium</h3>
+                    <div class="price">$750</div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Up to 10 Pages</li>
+                        <li><i class="fas fa-check"></i> Custom Design</li>
+                        <li><i class="fas fa-check"></i> Advanced SEO + Analytics</li>
+                        <li><i class="fas fa-check"></i> Delivery in 7 Days</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
- <!-- Testimonials Section -->
+    </section>
+
+    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <h2 class="section-title fade-in">Client Testimonials</h2>
@@ -1083,7 +1144,7 @@
         </div>
     </section>
 
-  <!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title fade-in">Get In Touch</h2>
@@ -1099,8 +1160,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Working hours</h4>
-                                <p>Mon – Fri: 9:00 AM – 6:00 PM (GMT+5:30)
-                                </p>
+                                <p>Mon – Fri: 9:00 AM – 6:00 PM (GMT+5:30)</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1109,7 +1169,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Call Us</h4>
-                                <a href="tel:+18005551234">+94 762349507</a>
+                                <a href="tel:+94762349507">+94 762349507</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1118,7 +1178,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Email Us</h4>
-                                <a href="mailto:info@shamaxmedia.com">shamaxmedia.digital@gmail.com</a>
+                                <a href="mailto:shamaxmedia.digital@gmail.com">shamaxmedia.digital@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -1130,33 +1190,27 @@
                         <a href="https://x.com/shamaxmedia" class="social-link">
                             <i class="fab fa-twitter"></i>
                         </a>
-                       
                         <a href="https://www.instagram.com/shamaxmedia/" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
-
-                 </div>
+                    </div>
                 </div>
                 <div class="contact-form fade-in delay-1">
-                <form action=https://formspree.io/f/xblyeezn method="POST">
-         
-  <input type="text" name="name" placeholder="Your Name" required>
-
-  <input type="email" name="email" placeholder="Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-         title="Please enter a valid email address">
-
-  <input type="text" name="subject" placeholder="Subject">
-
-  <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-
-  <button type="submit">Send Message</button>
-</form>
-
+                    <form action="https://formspree.io/f/xblyeezn" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+                        <input type="text" name="subject" placeholder="Subject">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer>
+      
             <div class="footer-bottom">
                 <p>&copy; 2023 ShamaxMedia. All Rights Reserved.</p>
             </div>
@@ -1167,24 +1221,66 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mainMenu = document.querySelector('#main-menu');
+        const navLinks = document.querySelectorAll('nav ul li a');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mainMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mainMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        function adjustMenuForScreenSize() {
+            if (window.innerWidth <= 768) {
+                mobileMenuBtn.style.display = 'block';
+                mainMenu.style.display = 'none';
+            } else {
+                mobileMenuBtn.style.display = 'none';
+                mainMenu.style.display = 'flex';
+            }
+        }
+
+        // Initial check
+        adjustMenuForScreenSize();
+
+        // Check on resize
+        window.addEventListener('resize', adjustMenuForScreenSize);
+
+        // Toggle menu
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (mainMenu.style.display === 'block' || mainMenu.classList.contains('active')) {
+                mainMenu.style.display = 'none';
+                mainMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                mainMenu.style.display = 'block';
+                mainMenu.classList.add('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            }
         });
 
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && (mainMenu.style.display === 'block' || mainMenu.classList.contains('active'))) {
+                mainMenu.style.display = 'none';
+                mainMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Enhanced smooth scrolling with offset for fixed header
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                if (mainMenu.classList.contains('active')) {
+                if (mainMenu.classList.contains('active') || mainMenu.style.display === 'block') {
+                    mainMenu.style.display = 'none';
                     mainMenu.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             });
@@ -1205,8 +1301,12 @@
             fadeInObserver.observe(element);
         });
 
-   
-        }
-</script>
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            setTimeout(function() {
+                window.location.reload();
+            }, 200);
+        });
+    </script>
 </body>
 </html>
